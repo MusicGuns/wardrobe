@@ -1,9 +1,9 @@
-require "translit"
+
 
 class Wardrobe
   attr_reader :clothes
   def initialize(clothes)
-    @clothes = sort_cloth(clothes)
+    @clothes = sorting_clothes(clothes)
   end
 
   def self.from_file(files_path)
@@ -14,17 +14,16 @@ class Wardrobe
     self.new(clothes)
   end
 
-  def sort_cloth(clothes)
+  def sorting_clothes(clothes)
     sort_clothes = {}
 
     clothes.each do |cloth|
-      translit_type = Translit.convert(cloth.type)
-      if  sort_clothes[translit_type].nil?
-        sort_clothes[translit_type] = []
+      if  sort_clothes[cloth.type].nil?
+        sort_clothes[cloth.type] = []
       end
-      sort_clothes[translit_type] << cloth
+      sort_clothes[cloth.type] << cloth
     end
-
+    puts sort_clothes.to_s
     sort_clothes
   end
 
