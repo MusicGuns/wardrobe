@@ -2,6 +2,7 @@
 
 class Wardrobe
   attr_reader :clothes
+  
   def initialize(clothes)
     @clothes = sorting_clothes(clothes)
   end
