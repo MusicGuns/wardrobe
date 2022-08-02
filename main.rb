@@ -8,4 +8,14 @@ clothes = Wardrobe.from_file(files_path)
 
 puts "Введите температуру"
 
-clothes.what_wear(gets.to_i)
+clothes_to_wear = clothes.what_wear(gets.to_i)
+
+puts "Вот ваш сегодняшний лук"
+
+clothes_to_wear.each do |cloth|
+  if cloth.nil?
+    puts "Для вас нету вещей типа (#{cloth.type})"
+  else
+    puts cloth.to_s
+  end
+end

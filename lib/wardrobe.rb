@@ -29,15 +29,8 @@ class Wardrobe
   end
 
   def what_wear(temperature_today)
-    puts "Вот ваш сегодняшний лук"
-
-    @clothes.keys.each do |key|
-      need_cloth = @clothes[key].shuffle.detect { |cloth| cloth.temperature === temperature_today}
-      if need_cloth.nil?
-        puts "Для вас нету вещей типа (#{@clothes[key].sample.type})"
-      else
-        puts need_cloth.to_s
-      end
+    clothes_to_wear = @clothes.keys.map do |key|
+      suitble_cloth = @clothes[key].shuffle.detect { |cloth| cloth.temperature === temperature_today}
     end
   end
 end
