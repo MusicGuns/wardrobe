@@ -8,7 +8,7 @@ clothes = Wardrobe.from_file(files_path)
 
 puts "Введите температуру"
 
-clothes_to_wear = clothes.what_wear(gets.to_i)
+clothes_to_wear = clothes.suiting_for_weather(gets.to_i)
 
 puts "Вот ваш сегодняшний лук"
 

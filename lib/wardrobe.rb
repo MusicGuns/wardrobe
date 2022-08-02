@@ -2,9 +2,9 @@
 
 class Wardrobe
   attr_reader :clothes
-  
+
   def initialize(clothes)
-    @clothes = sorting_clothes(clothes)
+    @clothes = sort_clothes(clothes)
   end
 
   def self.from_file(files_path)
@@ -15,22 +15,23 @@ class Wardrobe
     self.new(clothes)
   end
 
-  def sorting_clothes(clothes)
-    sort_clothes = {}
-
-    clothes.each do |cloth|
-      if  sort_clothes[cloth.type].nil?
-        sort_clothes[cloth.type] = []
-      end
-      sort_clothes[cloth.type] << cloth
-    end
-    puts sort_clothes.to_s
-    sort_clothes
-  end
-
-  def what_wear(temperature_today)
+  def suiting_for_weather(temperature_today)
     clothes_to_wear = @clothes.keys.map do |key|
       suitble_cloth = @clothes[key].shuffle.detect { |cloth| cloth.temperature === temperature_today}
     end
+  end
+
+  private
+
+  def sort_clothes(clothes)
+    sorted_clothes = {}
+
+    clothes.each do |cloth|
+      if  sorted_clothes[cloth.type].nil?
+        sorted_clothes[cloth.type] = []
+      end
+      sorted_clothes[cloth.type] << cloth
+    end
+    sorted_clothes
   end
 end
