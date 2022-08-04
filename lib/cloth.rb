@@ -1,5 +1,6 @@
 class Cloth
   attr_reader :name, :type, :temperature
+  
   def initialize(info)
     @name = info[:name]
     @type = info[:type]
@@ -13,7 +14,6 @@ class Cloth
   private
   
   def to_range(temperature)
-    temperature_range = temperature.scan(/\-*\d+/)
-    temperature_range[0].to_i..temperature_range[1].to_i
+    Range.new(*temperature.scan(/\-*\d+/).map(&:to_i))
   end
 end
