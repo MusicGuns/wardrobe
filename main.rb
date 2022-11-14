@@ -10,7 +10,6 @@ puts 'Введите температуру'
 clothes_to_wear = clothes.suiting_for_weather(gets.to_i)
 
 puts 'Вот ваш сегодняшний лук'
-binding.irb
 clothes_to_wear.each_key do |key|
   if clothes_to_wear[key].nil?
     puts "Для вас нету вещей типа (#{key})"
