@@ -21,6 +21,7 @@ This is a simple Wardrobe console program that helps you pick up clothes for the
 брюки (штаны), -10..5
 Шерстяные трусы (трусы), -5..20
 ```
+___
 
 <a name="edit"><h3>How to add new clothes</h3></a>
 
@@ -37,6 +38,7 @@ Before creating the file, look at the types of clothes that are given in other f
 головной убор # type_cloth
 (5,20) # temperature range
 ```
+___
 
 <a name="use"><h3>How to use</h3></a>
 ---------------
